@@ -1,0 +1,19 @@
+{
+  "name": "sis-schedule-calendar",
+  "version": "1.0.0",
+  "description": "Parses SIS class schedule and exports as a CSV calendar file",
+  "main": "scrape.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Santamaria",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.17.1",
+    "fs-extra": "^7.0.0",
+    "jquery": "^3.3.1",
+    "json2csv": "^4.2.1",
+    "moment": "^2.22.2",
+    "puppeteer": "^1.7.0"
+  }
+}

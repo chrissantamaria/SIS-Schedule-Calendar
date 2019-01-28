@@ -1,0 +1,8 @@
+
+creds\.json
+
+node_modules/
+
+\.vscode/
+
+classes\.csv
