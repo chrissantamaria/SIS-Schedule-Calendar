@@ -15,5 +15,8 @@
     "json2csv": "^4.2.1",
     "moment": "^2.22.2",
     "puppeteer": "^1.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1"
   }
 }
