@@ -4,9 +4,9 @@
   "description": "Parses SIS class schedule and exports as a CSV calendar file",
   "main": "scrape.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app"
   },
-  "author": "Chris Santamaria",
+  "author": "Chris Santamaria <chris@santamaria.me>",
   "license": "ISC",
   "dependencies": {
     "commander": "^2.17.1",
