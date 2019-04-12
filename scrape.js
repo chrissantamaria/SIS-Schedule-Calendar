@@ -3,6 +3,7 @@ program
     .option('--login', 'automatically logs into SIS using login details from creds.json')
     .option('--headless', 'hides automated Chrome window')
     .option('--weeks <n>', 'specifies how many weeks in advance the program should scrape')
+    .option('--out [path]', 'output path for csv file')
     .parse(process.argv);
 
 const puppeteer = require('puppeteer');
@@ -160,7 +161,7 @@ const fs = require('fs-extra');
         const csv = json2csvParser.parse(classes);
 
         console.log('Writing csv to file');
-        await fs.writeFile('classes.csv', csv);
+        await fs.writeFile(program.out || 'classes.csv', csv);
 
     } catch (e) {
         console.error(e);
