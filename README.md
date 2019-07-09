@@ -20,7 +20,7 @@ The Chrome instance will automatically navigate to the SIS NetBadge login page w
 
 | Option         | Default       | Description                                                                                |
 | -------------- | ------------- | ------------------------------------------------------------------------------------------ |
-| `--weeks <n>`  | `3`           | specifies how many weeks in advance the program should scrape                              |
+| `--weeks <n>`  | `1`           | specifies how many weeks in advance the program should scrape                              |
 | `--out [path]` | `classes.csv` | output path for csv file                                                                   |
 | `--login`      |               | automatically logs into SIS using login details from creds.json (see `creds_example.json`) |
 | `--headless`   |               | hides automated Chrome window                                                              |
