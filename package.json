@@ -13,6 +13,7 @@
     "fs-extra": "^7.0.1",
     "json2csv": "^4.4.1",
     "moment": "^2.24.0",
+    "progress": "^2.0.3",
     "puppeteer": "^1.14.0"
   },
   "devDependencies": {

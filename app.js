@@ -7,6 +7,7 @@ program
     .parse(process.argv);
 
 const puppeteer = require('puppeteer');
+const ProgressBar = require('progress');
 const { parseAsync: parseCSV } = require('json2csv');
 const fs = require('fs-extra');
 
@@ -70,13 +71,19 @@ const { waitForSISLoad, getClasses } = require("./utils");
         await page.click(`[id='win0divDERIVED_CLASS_S_SSR_REFRESH_CAL$38$'] [type]`);
         await page.evaluate(waitForSISLoad);
 
+        console.log("Scraping classes:");
+        const weeks = parseInt(program.weeks) || 1;
+        const bar = new ProgressBar('[:bar] (:current/:total)', {
+            total: weeks,
+            width: 20
+        });
+
         let classes = [];
-        const weeks = program.weeks || 1;
         // Performing scrape for each desired week
         for (let i = 1; i <= weeks; i++) {
-            console.log(`Scraping week ${i} of ${weeks}`);
             // Adding newly scraped classes to main classes array
             classes = classes.concat(await page.evaluate(getClasses));
+            bar.tick();
             // Loading next week if necessary
             if (i < weeks) {
                 // Next week button
