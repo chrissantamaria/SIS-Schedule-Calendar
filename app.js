@@ -59,8 +59,7 @@ const { waitForSISLoad, getClasses } = require("./utils");
         // Waiting for "Schedule" header to show a successful page load
         await page.waitForSelector(`[id='win0divSSR_DUMMY_RECGP$0']`);
 
-        // Adding JQuery and moment.js to calendar page for easier scraping
-        await page.addScriptTag({ path: require.resolve('jquery') });
+        // Adding Moment to calendar page for easier date parsing
         await page.addScriptTag({ path: require.resolve('moment') });
 
         // Show intructor button

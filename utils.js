@@ -16,11 +16,15 @@ const getClasses = () => {
 
     // Storing starting day of the given week (Monday)
     // so that dates of classes can be calculated relative to it later
-    const weekStartDate = new Date($('#DERIVED_CLASS_S_START_DT').val());
+    const weekStartDate = new Date(document.querySelector('#DERIVED_CLASS_S_START_DT').value);
 
     // Using spread to use HTMLCollection as an array
     // Excluding first row (table header)
-    const rows = [...$(`[id='win0divDERIVED_CLASS_S_HTMLAREA$0'] tbody`)[0].children].slice(1);
+    const rows = [
+        ...document.querySelectorAll(
+            `[id='win0divDERIVED_CLASS_S_HTMLAREA$0'] tbody`
+        )[0].children
+    ].slice(1);
     // Getting x coordinate positions of each row (janky but best way to later get column number of a cell)
     const columnPositons = [...rows[0].children].map(header => header.getBoundingClientRect().x);
 
