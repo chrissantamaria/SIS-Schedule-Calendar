@@ -7,7 +7,7 @@ program
     .parse(process.argv);
 
 const puppeteer = require('puppeteer');
-const Json2csvParser = require('json2csv').Parser;
+const { parseAsync: parseCSV } = require('json2csv');
 const fs = require('fs-extra');
 
 const { waitForSISLoad, getClasses } = require("./utils");
@@ -87,7 +87,7 @@ const { waitForSISLoad, getClasses } = require("./utils");
         }
 
         // Formatting class objects to match csv calendar standard
-        const json2csvParser = new Json2csvParser({
+        const csv = await parseCSV(classes, {
             fields: [
                 { label: 'Subject', value: 'name' },
                 { label: 'Start Date', value: 'date' },
@@ -98,7 +98,6 @@ const { waitForSISLoad, getClasses } = require("./utils");
                 { label: 'Location', value: 'location' }
             ]
         });
-        const csv = json2csvParser.parse(classes);
 
         console.log('Writing csv to file');
         await fs.writeFile(program.out || 'classes.csv', csv);
