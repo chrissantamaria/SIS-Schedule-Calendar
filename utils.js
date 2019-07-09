@@ -16,7 +16,9 @@ const getClasses = () => {
 
     // Storing starting day of the given week (Monday)
     // so that dates of classes can be calculated relative to it later
-    const weekStartDate = new Date(document.querySelector('#DERIVED_CLASS_S_START_DT').value);
+    const weekStartDate = new Date(
+        document.querySelector('#DERIVED_CLASS_S_START_DT').value
+    );
 
     // Using spread to use HTMLCollection as an array
     // Excluding first row (table header)
@@ -26,7 +28,9 @@ const getClasses = () => {
         )[0].children
     ].slice(1);
     // Getting x coordinate positions of each row (janky but best way to later get column number of a cell)
-    const columnPositons = [...rows[0].children].map(header => header.getBoundingClientRect().x);
+    const columnPositons = [...rows[0].children].map(
+        header => header.getBoundingClientRect().x
+    );
 
     for (const row of rows) {
         let cells = [...row.children]
@@ -51,9 +55,9 @@ const getClasses = () => {
                 // Course number
                 // Instructor (if present)
                 description: `
-                            ${cellContents[0]}
-                            ${cellContents[6] ? '\n' + cellContents[6] : ''}
-                        `,
+                    ${cellContents[0]}
+                    ${cellContents[6] ? '\n' + cellContents[6] : ''}
+                `,
                 location: cellContents[4],
                 date: moment(weekStartDate).add(colNum, 'd').format('MM/DD/YYYY'),
                 startTime: times[0],
