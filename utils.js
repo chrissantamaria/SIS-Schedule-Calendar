@@ -2,8 +2,8 @@
 const waitForSISLoad = () => new Promise(resolve => {
     // Checks every 300ms if the loading icon is visible
     const loop = setInterval(() => {
-        const visible = $('#WAIT_win0').is(":visible");
-        if (!visible) {
+        const { visibility } = document.querySelector('#WAIT_win0').style;
+        if (visibility === 'hidden') {
             clearInterval(loop);
             resolve();
         }
