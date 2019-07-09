@@ -2,9 +2,9 @@
   "name": "sis-schedule-calendar",
   "version": "1.0.0",
   "description": "Parses SIS class schedule and exports as a CSV calendar file",
-  "main": "scrape.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node scrape"
+    "start": "node app"
   },
   "author": "Chris Santamaria <chris@santamaria.me>",
   "license": "ISC",
