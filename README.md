@@ -2,6 +2,8 @@
 
 Schedule parser for University of Virginia's SIS which exports a .csv calendar file for importing into a service like Google Calendar.
 
+#### Note: SIS has (finally!) been updated with a modern UI which in turn has broken this tool. You can now download `.ics` calendar files for each semester directly in the SIS schedule view. This repo will exist solely for reference and will not be maintained.
+
 ## Installation
 
 ```
